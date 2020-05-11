@@ -13,6 +13,18 @@ from enum import Enum, unique
 
 
 @unique
+class VariantType(Enum):
+    Str = 'str'
+    Int = 'int'
+    Bool = 'bool'
+    Set = 'set'
+    List = 'list'
+    Tuple = 'tuple'
+    Dict = 'dict'
+
+
+
+@unique
 class CpuBits(Enum):
     bits64 = 0
     bits32 = 1
@@ -63,3 +75,4 @@ class BrowserType(Enum):
     FireFox = 0
     Chrome = 1
     All = 2
+

@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 setuptools.setup(
     name="zhangwei_helper",
     # username
-    version="0.0.2",
+    version="0.0.3",
     author="zwzw911",
     author_email="zwzw911110@163.com",
     description="A package include all common part,like function,enum,written \
