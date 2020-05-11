@@ -68,3 +68,4 @@ import zhangwei_helper.function.Network as zw_network
 0.0.1  add SelfEnum/Os/WindowsServices  
 0.0.2  add const/Const.py, function/Network.py, function/Software  
 0.0.3  add function/TypeCheck, add new enum VariantType, add test case for function/TypeCheck
+0.0.4  fix issue of network/gen_proxies_from_ip & download_file & download_unzip_firefox_driver

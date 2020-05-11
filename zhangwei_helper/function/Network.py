@@ -51,7 +51,7 @@ def extract_base_url_from_url(url):
 
 
 def gen_proxies_from_ip(ip):
-    return {'http':ip,'https':ip}
+    return None if ip == "" else {'http':ip,'https':ip}
 
 
 def detect_if_need_proxy(url):
@@ -158,9 +158,9 @@ def download_file(url, save_path, headers=self_const.HEADER, proxies=None):
     '''
     try:
         if proxies is not None:
-            r = requests.get(url, proxies=proxies, headers=self_const.HEADER)
+            r = requests.get(url, proxies=proxies, headers=headers)
         else:
-            r = requests.get(url, headers=self_const.HEADER)
+            r = requests.get(url, headers=headers)
         with open(save_path, "wb") as code:
             code.write(r.content)
     except Exception as e:
@@ -200,11 +200,11 @@ def download_unzip_firefox_driver(python_dir, browser_ver, os_type,os_bits,proxi
         return
     # print('开始时下载')
     # 检测是否需要代理
-    if detect_if_need_proxy(url):
+    base_url = extract_base_url_from_url(url)
+    if detect_if_need_proxy(url=base_url):
         if proxies is None:
             raise ValueError("需要使用代理，但是未设置代理")
         # 检测代理是否可用
-        base_url = extract_base_url_from_url(url)
         if not detect_if_proxy_usable(proxies=proxies, timeout=5, url=base_url):
             raise ValueError("设置的代理无法连接%s" % base_url)
         # 代理下载
