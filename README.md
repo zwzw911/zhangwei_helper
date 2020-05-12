@@ -63,9 +63,19 @@ import zhangwei_helper.function.Network as zw_network
 5. unzip_file():解压zip文件到指定目录
 6. is_valid_zip_file():是否为合格的zip文件
 
+**Regedit**     
+***description***: a module include some functions to operate windows reg              
+***usage***:  
+1. _open_item: 返回item
+2. _read_key_value：读取item下一个key的值和类型
+3. _save_key_value：以某种类型的方式，把值保存到某个key中
+4. read_PATH_value：读取环境变量PATH的值
+5. append_value_in_PATH：为PATH添加一个值
+6. del_value_in_PATH：从PATH中删除一个值
 
 ### change history
 0.0.1  add SelfEnum/Os/WindowsServices  
 0.0.2  add const/Const.py, function/Network.py, function/Software  
 0.0.3  add function/TypeCheck, add new enum VariantType, add test case for function/TypeCheck
 0.0.4  fix issue of network/gen_proxies_from_ip & download_file & download_unzip_firefox_driver
+0.0.5  add new function/Regedit.py, to operate windows reg

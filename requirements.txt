@@ -1,0 +1,4 @@
+urllib3>=1.25.9
+requests>=2.23.0
+requests_html>=0.10.0
+pytest>=5.4.1
