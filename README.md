@@ -72,6 +72,9 @@ import zhangwei_helper.function.Network as zw_network
 4. read_PATH_value：读取环境变量PATH的值
 5. append_value_in_PATH：为PATH添加一个值
 6. del_value_in_PATH：从PATH中删除一个值
+7. check_key_value_exists(key,value_name)：检查某个key小，value_name是否存在
+8. create_value(key,value_name,value_type,value): 直接调用_save_key_value
+9. delete_value(key,value_name): 删除key下的value
 
 ### change history
 0.0.1  add SelfEnum/Os/WindowsServices  
@@ -79,3 +82,4 @@ import zhangwei_helper.function.Network as zw_network
 0.0.3  add function/TypeCheck, add new enum VariantType, add test case for function/TypeCheck
 0.0.4  fix issue of network/gen_proxies_from_ip & download_file & download_unzip_firefox_driver
 0.0.5  add new function/Regedit.py, to operate windows reg
+0.0.6  add create/delete_value/check_key_value_exists in function/Regedit.py
