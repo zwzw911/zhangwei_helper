@@ -82,4 +82,8 @@ import zhangwei_helper.function.Network as zw_network
 0.0.3  add function/TypeCheck, add new enum VariantType, add test case for function/TypeCheck
 0.0.4  fix issue of network/gen_proxies_from_ip & download_file & download_unzip_firefox_driver
 0.0.5  add new function/Regedit.py, to operate windows reg
-0.0.6  add create/delete_value/check_key_value_exists in function/Regedit.py
+0.0.6  add create/delete_value/check_key_value_exists in function/Regedit.py    
+0.0.7  software/get_chrome_version: from 2 different place get version and raise error if not found, so that can be caught by outer function        
+        HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Uninstall\Google Chrome   
+        HKEY_CURRENT_USER\Software\Google\Chrome\BLBeacon    
+        

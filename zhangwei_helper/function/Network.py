@@ -252,12 +252,12 @@ def download_unzip_chrome_driver(python_dir, browser_ver, os_type,os_bits,proxie
             raise ValueError("设置的代理无法连接%s" % base_url)
         # 代理下载
         if not detect_url_exist(url=url,proxies=proxies,headers=headers):
-            raise ValueError("指定的下载链接%s不存在，可能是chrome的版本不支持" % url)
+            raise ValueError("指定的下载链接%s不存在，Chrome %s可能不是稳定版" % (url, browser_ver))
         download_file(url=url, save_path=save_path, proxies=proxies,headers=headers)
     else:
         # 非代理下载
         if not detect_url_exist(url=url,proxies=proxies,headers=headers):
-            raise ValueError("指定的下载链接%s不存在，可能是chrome的版本不支持" % url)
+            raise ValueError("指定的下载链接%s不存在，Chrome %s可能不是稳定版" % (url, browser_ver))
         download_file(url=url, save_path=save_path)
 
     self_software.unzip_file(file_path=save_path, save_path=python_dir)

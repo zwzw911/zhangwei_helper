@@ -89,14 +89,21 @@ def get_chrome_version():
     # HKEY_CURRENT_USER\Software\Google\Chrome\BLBeacon
     # HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Uninstall\Google Chrome
     try:
-        chrome_item = winreg.OpenKey(winreg.HKEY_CURRENT_USER,
+        chrome_key = winreg.OpenKey(winreg.HKEY_CURRENT_USER,
                                      r'Software\Microsoft\Windows\CurrentVersion\Uninstall\Google Chrome')
+        # print(chrome_key)
     except Exception as e:
         # print(e)
-        print('尚未安装chrome')
-        return None
+        # print('尚未安装chrome')
+        # return None
+        try:
+            chrome_key = winreg.OpenKey(winreg.HKEY_CURRENT_USER,r'Software\Google\Chrome\BLBeacon')
+        except OSError as e:
+            # print(e)
+            raise OSError('未检测到google安装程序')
 
-    val, t = winreg.QueryValueEx(chrome_item, r'version')
+    val, t = winreg.QueryValueEx(chrome_key, r'version')
+    # print(val)
     return val
 
 
@@ -134,5 +141,5 @@ def is_valida_zip_file(file_path):
 
 if __name__ == '__main__':
     # unzip_file(file_path=r'C:\Python38\geckodriver-v0.26.0-win64.zip', save_path=r'C:\Python38')
-    print(is_valida_zip_file(r'C:\Python38\geckodriver-v0.26.0-win64.zip'))
-
+    # print(is_valida_zip_file(r'C:\Python38\geckodriver-v0.26.0-win64.zip'))
+    get_chrome_version()
